@@ -2,8 +2,6 @@ package dev.java10x.MagicStoreIA.service;
 
 import dev.java10x.MagicStoreIA.model.FoodItem;
 import dev.java10x.MagicStoreIA.repository.FoodItemRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.servlet.actuate.web.exchanges.HttpExchangesFilter;
 import org.springframework.stereotype.Service;
 
 
@@ -11,12 +9,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
 public class FoodItemService {
 
+    private final FoodItemRepository repository;
 
-    private final HttpExchangesFilter httpExchangesFilter;
-    private FoodItemRepository repository;
+    public FoodItemService(FoodItemRepository repository) {
+        this.repository = repository;
+    }
 
 
     public FoodItem salvar(FoodItem fooditem){

@@ -2,7 +2,6 @@ package dev.java10x.MagicStoreIA.controller;
 
 import dev.java10x.MagicStoreIA.model.FoodItem;
 import dev.java10x.MagicStoreIA.service.FoodItemService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +9,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/food")
-@RequiredArgsConstructor
 public class FoodItemController {
 
-    private FoodItemService service;
+    private final FoodItemService service;
+
+    public FoodItemController(FoodItemService service) {
+        this.service = service;
+    }
 
     // GET - listar todos
     @GetMapping("/listar")
