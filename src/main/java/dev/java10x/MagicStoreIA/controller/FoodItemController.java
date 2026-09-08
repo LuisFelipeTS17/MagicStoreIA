@@ -44,7 +44,7 @@ public class FoodItemController {
 
 
     // DELETE - remove pelo id
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable Long id){
     service.deletarItem(id);
     return ResponseEntity.noContent().build();
